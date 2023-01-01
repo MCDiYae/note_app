@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nnoteapp/view/widgets/custom_textfield.dart';
 
+import 'custom_button.dart';
+
 class AddBottom extends StatelessWidget {
   const AddBottom({super.key});
 
@@ -13,7 +15,15 @@ class AddBottom extends StatelessWidget {
           SizedBox(
             height: 16,
           ),
-          CustomTextField(),
+          CustomTextField(hint: 'Titre '),
+          SizedBox(
+            height: 16,
+          ),
+          CustomTextField(
+            hint: 'note',
+            maxLines: 3,
+          ),
+          CustomButton(),
         ],
       ),
     );
