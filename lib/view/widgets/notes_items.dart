@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:nnoteapp/models/note_model.dart';
 import 'package:nnoteapp/view/edit_note_view.dart';
 
 class NoteItems extends StatelessWidget {
-  const NoteItems({super.key});
+  const NoteItems({super.key, required this.note});
+  final NoteModel note;
 
   @override
   Widget build(BuildContext context) {
@@ -25,25 +27,25 @@ class NoteItems extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Text(
-                'study',
-                style: TextStyle(fontSize: 26, color: Colors.black),
+              title: Text(
+                note.title,
+                style: const TextStyle(fontSize: 26, color: Colors.black),
               ),
-              subtitle: const Padding(
-                padding: EdgeInsets.only(top: 10),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: 10),
                 child: Text(
-                  'Striving for success without hard work is like trying to harvest where you haven t planted ',
-                  style: TextStyle(fontSize: 18, color: Colors.black38),
+                  note.subtitle,
+                  style: const TextStyle(fontSize: 18, color: Colors.black38),
                 ),
               ),
               trailing:
                   IconButton(onPressed: () {}, icon: const Icon(Icons.delete)),
             ),
-            const Padding(
-              padding: EdgeInsets.only(right: 16),
+            Padding(
+              padding: const EdgeInsets.only(right: 16),
               child: Text(
-                '2020',
-                style: TextStyle(
+                note.date,
+                style: const TextStyle(
                   fontSize: 18,
                   color: Colors.black38,
                 ),
