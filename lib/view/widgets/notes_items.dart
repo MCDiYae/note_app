@@ -38,8 +38,11 @@ class NoteItems extends StatelessWidget {
                   style: const TextStyle(fontSize: 18, color: Colors.black38),
                 ),
               ),
-              trailing:
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.delete)),
+              trailing: IconButton(
+                  onPressed: () {
+                    note.delete(); // simplement on sup les note
+                  },
+                  icon: const Icon(Icons.delete)),
             ),
             Padding(
               padding: const EdgeInsets.only(right: 16),
