@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:nnoteapp/cubits/add_note/add_note_cubit.dart';
 import 'package:nnoteapp/models/note_model.dart';
 import 'package:nnoteapp/view/widgets/custom_button.dart';
@@ -49,25 +50,25 @@ class _AddNoteFormState extends State<AddNoteForm> {
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
               return CustomButton(
-              onTap: () {
-                if (formKey.currentState!.validate()) {
-                  formKey.currentState!.save();
-                  var noteModel = NoteModel(
-                      title: title!,
-                      subtitle: subTitle!,
-                      date: DateTime.now().toString(),
-                      color: Colors.blueAccent.value);
-                  BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-                } else {
-                  autovalidateMode = AutovalidateMode.always;
-                  setState(() {});
-                }
-              },
-            );
+                onTap: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    var dateInstant = DateTime.now();
+                    var formatDate = DateFormat('M/d/y').format(dateInstant);
+                    var noteModel = NoteModel(
+                        title: title!,
+                        subtitle: subTitle!,
+                        date: formatDate,
+                        color: Colors.blueAccent.value);
+                    BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
             },
           )
-            
-          
         ],
       ),
     );
