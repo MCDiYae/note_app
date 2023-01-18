@@ -5,6 +5,7 @@ import 'package:nnoteapp/constant.dart';
 import 'package:nnoteapp/simple_bloc_observer.dart';
 import 'package:nnoteapp/view/note_view.dart';
 
+import 'cubits/notes cubit/notes_cubit.dart';
 import 'models/note_model.dart';
 
 void main() async {
@@ -20,10 +21,13 @@ class NoteApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
-      home: const NoteView(),
+    return BlocProvider(
+      create: (context) => NotesCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark(),
+        home: const NoteView(),
+      ),
     );
   }
 }

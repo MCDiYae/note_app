@@ -14,7 +14,8 @@ class NotesCubit extends Cubit<NotesState> {
   List<NoteModel>? notes;
   fetshAllNote() {
     var notesbox = Hive.box<NoteModel>(noteBox);
-    notes = notesbox.values.toList(); // ici on obtient la liste des notes
+    notes = notesbox.values.toList();
+    emit(NotesInitial()); // ici on obtient la liste des notes
   }
 }
 // et je vais ajouter ce cubit dans notes view
