@@ -4,9 +4,16 @@ import 'package:nnoteapp/cubits/notes%20cubit/notes_cubit.dart';
 import 'package:nnoteapp/models/note_model.dart';
 import 'package:nnoteapp/view/edit_note_view.dart';
 
+import '../../constant.dart';
+
 class NoteItems extends StatelessWidget {
-  const NoteItems({super.key, required this.note});
+  const NoteItems({
+    super.key,
+    required this.note,
+    required this.index,
+  });
   final NoteModel note;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +31,8 @@ class NoteItems extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: Colors.amber,
+          color: colors[
+              index % colors.length], // array of colors in constant widget
           borderRadius: BorderRadius.circular(5),
         ),
         child: Column(

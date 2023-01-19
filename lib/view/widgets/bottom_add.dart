@@ -25,8 +25,7 @@ class AddBottom extends StatelessWidget {
             absorbing: state is AddNoteLoading ? true : false,
             child: const Padding(
               padding: EdgeInsets.symmetric(horizontal: 24, vertical: 40),
-              child: SingleChildScrollView(
-                child: AddNoteForm()),
+              child: SingleChildScrollView(child: AddNoteForm()),
             ),
           );
         },

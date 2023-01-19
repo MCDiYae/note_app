@@ -15,9 +15,10 @@ class NoteViewBody extends StatefulWidget {
 class _NoteViewBodyState extends State<NoteViewBody> {
   @override
   void initState() {
-   BlocProvider.of<NotesCubit>(context).fetshAllNote();
+    BlocProvider.of<NotesCubit>(context).fetshAllNote();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -29,12 +30,13 @@ class _NoteViewBodyState extends State<NoteViewBody> {
           ),
           CustomAppbar(
             texte: 'NOTE',
-            icon: Icons.search,
+            icon: Icons.note_alt_outlined,
           ),
           SizedBox(
             height: 30,
           ),
-          Expanded(child: NotesListView())
+          Expanded(child: NotesListView()
+          )
         ],
       ),
     );

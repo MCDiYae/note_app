@@ -26,15 +26,11 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
           ),
           CustomAppbar(
             onPressed: () {
-              if (title != null) {
-                widget.note.title = title!;
-              }
-              if (subtitle != null) {
-                widget.note.subtitle = subtitle!;
-              }
+              widget.note.title = title ?? widget.note.title;
+              widget.note.subtitle = subtitle ?? widget.note.subtitle;
               widget.note.save(); // save mn hive
-              BlocProvider.of<NotesCubit>(context)
-                  .fetshAllNote(); // pour refresh
+              // pour refresh
+              BlocProvider.of<NotesCubit>(context).fetshAllNote();
               Navigator.pop(context);
             },
             texte: 'Edit Note',
