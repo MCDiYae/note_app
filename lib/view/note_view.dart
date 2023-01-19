@@ -12,7 +12,8 @@ class NoteView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
-              context: context, builder: (context) => const AddBottom());
+              context: context, 
+              builder: (context) => const AddBottom());
         },
         child: const Icon(Icons.add),
       ),

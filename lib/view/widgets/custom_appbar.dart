@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:nnoteapp/view/widgets/search_icon.dart';
 
 class CustomAppbar extends StatelessWidget {
-  const CustomAppbar({super.key, required this.texte, required this.icon});
+  const CustomAppbar({super.key, required this.texte, required this.icon, this.onPressed});
   final String texte;
   final IconData icon;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,7 @@ class CustomAppbar extends StatelessWidget {
           ),
         ),
         SearchIcon(
+          onPressed: onPressed,
           icon: icon,
         ),
       ],
